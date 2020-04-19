@@ -1,0 +1,101 @@
+#QUESTION 1
+
+mkdir docker1
+cd docker1
+ls
+vim dockerfile
+
+cat dockerfile
+
+###FROM alpine
+
+###MAINTAINER Mohini mohini@gmail.com
+
+
+###RUN mkdir /code
+
+###CMD date
+
+docker build -t alpine:mohini .
+docker run --name mohini1q1 alpine:mohini >question1.txt
+cat question1.txt
+docker start mohini1q1 >question1.txt
+cat question1.txt
+
+
+=============================================================================================================================
+
+QUESTION 2:
+
+docker build -t adhoc:mohini https://github.com/redashu/summer2020dockertest.git
+
+ docker images
+
+docker tag adhoc:mohini thakur1899/adhoc:mohini
+
+docker images
+
+docker login
+
+docker push  thakur1899/adhoc:mohini
+
+docker pull thakur1899/adhoc:mohini
+
+docker run --name mohini2q2 -p 1111:80 thakur1899/adhoc:mohini
+
+docker logout
+
+=============================================================================================================================
+
+QUESTION 3:
+
+docker pull dockerashu/ckad:v2 
+
+docker run -d --name mohinic3q3 -p 2000:80 dockerashu/ckad:v2
+
+
+
+
+
+===========================================================================================================================
+
+
+QUESTION 4:
+
+vim DockerFile
+cat DockerFile
+
+###DOCKERFILE
+
+FROM centos:7
+MAINTAINER mohini mohini@gmail.com
+
+RUN yum -y install httpd 
+
+RUN mkdir /mycode
+
+ADD https://github.com/redashu/beginner-html-site-styled.git /var/www/html/
+
+
+ENTRYPOINT httpd -DFOREGROUND
+
+EXPOSE 80
+
+
+docker build -t mohini:q4 -f DockerFile .
+  docker tag mohini:q4 thakur1899/mohini:q4
+  135  docker login
+  136  docker push  thakur1899/mohini:q4
+  137  docker run --name mohinic4q4 -p 1200:80 thakur1899/mohini:q4
+
+
+=============================================================================================================================
+
+QUESTION 5:
+
+docker volume create mohini5 
+
+docker volume inspect mohini5
+
+docker run -it --name mohiniic5q5 -v mohini5:/etc/passwd- -v mohini51:/adhocvol/user.txt alpine sh
+
